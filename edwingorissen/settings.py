@@ -28,7 +28,7 @@ SECRET_KEY = "e$d5ix@e-8srr2!^^5tbpstx9nh7go%dbd1!%ha3($rslk@7qp"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['edwingorissen.nl','www.edwingorissen.nl']
 
 
 # Application definition
