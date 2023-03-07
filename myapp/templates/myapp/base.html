@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maatwerk</title>
-</head>
-<body>
-    {% block content %}
-    
-    {% endblock content %}    
-</body>
+{% load static tailwind_tags %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+        <title>{% block title %} {% endblock %} | Maatwerk</title>
+        {% tailwind_css %}
+        
+    </head>
+    <body>
+        {% include 'myapp/navbar.html' %}
+        <main class="p-6">
+            {% block content %}
+            {% endblock content %}
+        </main>
+        {% include 'myapp/footer.html' %}
+    </body>
 </html>

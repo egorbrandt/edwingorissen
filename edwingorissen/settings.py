@@ -31,6 +31,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['edwingorissen.nl','www.edwingorissen.nl','127.0.0.1']
 
+AUTH_USER_MODEL = "accounts.User"
 
 # Application definition
 
@@ -41,9 +42,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'myapp',
     'django_extensions',
+    "crispy_forms",
+    "crispy_bootstrap5",
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +71,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',    
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
 ROOT_URLCONF = 'edwingorissen.urls'
@@ -87,6 +107,9 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'edwizfcs_edwin',
         'PASSWORD': '1P*_@_Hy?uA{',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        },
     }
 }
 
@@ -131,3 +154,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
